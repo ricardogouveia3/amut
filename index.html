@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>A.M.U.T. - Akeime Meme Ultimate Tool</title>
+  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="src/style.css">
+</head>
+
+<body>
+  <div class="title-wrapper">
+    <h1 class="title">A.M.U.T</h1>
+    <span class="description">Akeime Meme Ultimate Tool</span>
+  </div>
+
+  <div class="keys">
+    <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">goat</span>
+    </div>
+    <div data-key="77" class="key">
+        <kbd>M</kbd>
+        <span class="sound">morre porra</span>
+    </div>
+    <div data-key="85" class="key">
+        <kbd>U</kbd>
+        <span class="sound">ui kidelicia</span>
+    </div>
+  </div>
+
+  <audio data-key="71" src="sounds/goat.mp3"></audio>
+  <audio data-key="77" src="sounds/morre_porra.mp3"></audio>
+  <audio data-key="85" src="sounds/ui_kidelicia.mp3"></audio>
+
+  <script>
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if (!audio) return; // stop the function from running all together
+    audio.currentTime = 0; // rewind to the start
+    audio.play();
+    key.classList.add('playing');
+  }
+
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return; // skip it if it's not a transform
+    this.classList.remove('playing');
+  }
+
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+  </script>
+
+</body>
+</html>
