@@ -1,8 +1,10 @@
 html {
-  /*min-width: 100%;*/
     font-size: 10px;
-    background: url("http://i.imgur.com/0QUZTFq.jpg") no-repeat center;
+    background-image: url("img/background.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;
+    background-color: #464646;
 }
 body,html {
     margin: 0;
@@ -34,9 +36,10 @@ body,html {
 
 /* Keys */
 .keys {
+  margin-top: 3em;
   display:flex;
   flex:1;
-  min-height: 30vh; /* convert to margin soon! */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
@@ -48,7 +51,7 @@ body,html {
   font-size: 1.5rem;
   padding: 1rem .5rem;
   transition: all .07s;
-  width: 100px;
+  min-width: 100px;
   text-align: center;
   color: white;
   background: rgba(0,0,0,0.4);
@@ -64,10 +67,10 @@ body,html {
 
 kbd {
   display: block;
-  font-size: 40px;
+  font-size: 30px;
 }
 .sound {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color:#ffc600;
